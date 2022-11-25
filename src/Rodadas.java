@@ -56,6 +56,19 @@ public class Rodadas {
             }
         }
 
+        //verificar se pelo menos 1 jogador apostou
+        if(checkJogadores(jogadoresQueApostaram)==0){
+            System.out.println("Palhaçada... nenhum jogador apostou nessa rodada. Programa encerrado.");
+            System.exit(0);
+        } else if (checkJogadores(jogadoresQueApostaram)==1){
+            for(int i=0;i<jogadoresQueApostaram.length;i++){
+                if(jogadoresQueApostaram[i].equals("bet")){
+                    System.out.println("Uhul, só um jogador apostou, uau, que legal... programa encerrado.");
+                    System.exit(0);
+                }
+            }
+        }
+
         //laço de repetição  verificando apostas
         do {
             //verifico se todas as apostas são iguais
@@ -135,12 +148,31 @@ public class Rodadas {
     public static boolean checkAposta(int apostaAtual, int apostaJogador) {
 
         if (apostaJogador < apostaAtual) {
-            System.out.println("A aposta informada é menor do que a aposta atual, digite um valor maior ou igual ou peça pra sair.");
+            System.out.println("A aposta informada é menor do que a aposta atual.");
             return false;
         } else {
             return true;
         }
     }
-}
+
+    public static int checkJogadores(String[] jogadoresQueApostaram){
+        int verificador = 0;
+        for(int i=0;i<jogadoresQueApostaram.length;i++) {
+            if (jogadoresQueApostaram[i].equalsIgnoreCase("bet")) {
+                verificador++;
+            }
+        }
+            if(verificador == 0){
+                return 0;
+            } else if (verificador == 1) {
+                return 1;
+            }
+            return 2;
+            }
+        }
+
+
+
+
 
 
