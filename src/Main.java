@@ -17,6 +17,9 @@ public class Main {
         //soma da rodada
         int soma;
 
+        //jogador vencedor
+        int jogadorVencedor;
+
         //validador de jogadores vs cartas no baralho
         boolean jogoSegue  = false;
 
@@ -36,14 +39,17 @@ public class Main {
         cartasJogadores = Baralho.darCartas(jogadores,baralho);
 
         //começam as rodadas
-            Baralho.imprimeCartasJogadores(cartasJogadores);
+        Baralho.imprimeCartasJogadores(cartasJogadores);
 
-            soma = new Rodadas().rodadaPoker(jogadores,cartasJogadores);
-            Baralho.imprimeCartasDealer(baralho,Baralho.posicaoBaralho(jogadores));
-            String[] jogadoresRestantes = Rodadas.getJogadoresQueApostaram();
-            Baralho.imprimeCartaJogadoresRestantes(cartasJogadores,jogadoresRestantes);
-            System.out.println();
-            System.out.println("eaí, quem ganhou?");
+        soma = new Rodadas().rodadaPoker(jogadores,cartasJogadores);
+        Baralho.imprimeCartasDealer(baralho,Baralho.posicaoBaralho(jogadores));
+        String[] jogadoresRestantes = Rodadas.getJogadoresQueApostaram();
+        Baralho.imprimeCartaJogadoresRestantes(cartasJogadores,jogadoresRestantes);
+        System.out.println();
+        System.out.println("eaí, quem ganhou?");
+        jogadorVencedor = sc.nextInt();
+        System.out.println("-------------------");
+        System.out.println("O jogador "+jogadorVencedor+ " recebeu: R$ "+ soma+" na rodada!");
 
 
 
