@@ -1,4 +1,4 @@
-Desafio Main
+Desafio Poker
 
 Crie a classe Carta, que possui um nome e um naipe. Crie os métodos GET e SET para os atributos. Crie agora uma classe Baralho, que possui 52 cartas. No construtor de Baralho, inicialize as 48 cartas. Escreva os seguintes métodos:
 
