@@ -40,6 +40,10 @@ public class Baralho {
         for (int i = 0; i < baralho.length; i++) {
             nomeCarta = String.valueOf(baralho[i].getNome());
             switch (nomeCarta){
+                case("1"): {
+                    nomeCarta ="A";
+                    break;
+                }
                 case("11"): {
                     nomeCarta = "J";
                     break;
@@ -71,7 +75,7 @@ public class Baralho {
     }
 
     static void imprimeCartasJogadores(Carta[][] cartasJogadores) {
-        System.out.println(":::CARTAS DISTRIBUIDAS:::");
+        System.out.println("::::: CARTAS DISTRIBUIDAS :::::");
         String nomeCarta = "";
 
         for (int i = 0; i < cartasJogadores.length; i++) {
@@ -79,6 +83,10 @@ public class Baralho {
             for (int j = 0; j < 2; j++) {
                 nomeCarta = String.valueOf(cartasJogadores[i][j].getNome());
                 switch (nomeCarta){
+                    case("1"): {
+                        nomeCarta ="A";
+                        break;
+                    }
                     case("11"): {
                         nomeCarta = "J";
                         break;
@@ -116,13 +124,17 @@ public class Baralho {
     static void imprimeCartaJogadoresRestantes(Carta[][] cartasJogadores,String[] jogadoresQueApostaram) {
         String[] jogadoresRestantes = jogadoresQueApostaram;
         String nomeCarta = "";
-        System.out.println("::::JOGADORES RESTANTES::::");
+        System.out.println(":::: JOGADORES RESTANTES ::::");
         for (int i = 0; i < cartasJogadores.length; i++) {
             if (jogadoresRestantes[i] == "bet") {
                 System.out.println("Jogador " + (i + 1) + ":");
                 for (int j = 0; j < 2; j++) {
                     nomeCarta = String.valueOf(cartasJogadores[i][j].getNome());
                     switch (nomeCarta){
+                        case("1"): {
+                            nomeCarta ="A";
+                            break;
+                        }
                         case("11"): {
                             nomeCarta = "J";
                             break;
@@ -145,10 +157,14 @@ public class Baralho {
 
     static void imprimeCartasDealer(Carta[] baralho, int posicaoBaralho){
         String nomeCarta = "";
-        System.out.println("::::::CARTAS DA MESA::::::");
+        System.out.println("::::::: CARTAS DA MESA :::::::");
         for (int i= posicaoBaralho; i < posicaoBaralho+5;i++){
             nomeCarta = String.valueOf(baralho[i].getNome());
             switch (nomeCarta){
+                case("1"): {
+                    nomeCarta ="A";
+                    break;
+                }
                 case("11"): {
                     nomeCarta = "J";
                     break;
