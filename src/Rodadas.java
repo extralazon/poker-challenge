@@ -26,7 +26,8 @@ public class Rodadas {
         // primeira volta na mesa
         for (int i = 0; i < decisaoJogador.length; i++) {
             try {
-                System.out.println("Jogador " + (i + 1) + "," + "bet (1) ou out (2)?");
+                System.out.println("Jogador " + (i + 1) + ",");
+                System.out.println("bet (1) ou out (2)?");
                 opcaoJogador = sc.nextInt();
                 if (!(opcaoJogador == 1 || opcaoJogador == 2)) {
                     throw new ArithmeticException("opção inválida");
