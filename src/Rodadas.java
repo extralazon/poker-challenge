@@ -1,4 +1,4 @@
-import java.nio.channels.ScatteringByteChannel;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Rodadas {
@@ -11,10 +11,10 @@ public class Rodadas {
     public int rodadaPoker(int jogadores, Carta[][] cartasJogadores) {
 
         //defino bet para todos os jogadores
-        jogadoresQueApostaram = new String[jogadores];
-        for (int i = 0; i < jogadoresQueApostaram.length; i++) {
-            jogadoresQueApostaram[i] = "bet";
-        }
+        String[] jogadoresQueApostaram = new String[jogadores];
+
+            Arrays.fill(jogadoresQueApostaram,"bet");
+
 
         //criar variaveis necessarias
         Object[][] decisaoJogador = new Object[jogadores][2];
@@ -61,8 +61,8 @@ public class Rodadas {
             System.out.println("Palhaçada... nenhum jogador apostou nessa rodada. Programa encerrado.");
             System.exit(0);
         } else if (checkJogadores(jogadoresQueApostaram)==1){
-            for(int i=0;i<jogadoresQueApostaram.length;i++){
-                if(jogadoresQueApostaram[i].equals("bet")){
+            for (String s : jogadoresQueApostaram) {
+                if (s.equals("bet")) {
                     System.out.println("Uhul, só um jogador apostou, uau, que legal... programa encerrado.");
                     System.exit(0);
                 }
@@ -113,8 +113,8 @@ public class Rodadas {
         while (!apostasIguais);
 
         // soma a rodada
-        for (int i = 0; i < decisaoJogador.length; i++) {
-            somaApostas += (int) decisaoJogador[i][1];
+        for (Object[] objects : decisaoJogador) {
+            somaApostas += (int) objects[1];
         }
 
         return somaApostas;
@@ -147,18 +147,13 @@ public class Rodadas {
 
     public static boolean checkAposta(int apostaAtual, int apostaJogador) {
 
-        if (apostaJogador < apostaAtual) {
-            System.out.println("A aposta informada é menor do que a aposta atual.");
-            return false;
-        } else {
-            return true;
-        }
+        return apostaJogador >= apostaAtual;
     }
 
     public static int checkJogadores(String[] jogadoresQueApostaram){
         int verificador = 0;
-        for(int i=0;i<jogadoresQueApostaram.length;i++) {
-            if (jogadoresQueApostaram[i].equalsIgnoreCase("bet")) {
+        for (String s : jogadoresQueApostaram) {
+            if (s.equalsIgnoreCase("bet")) {
                 verificador++;
             }
         }

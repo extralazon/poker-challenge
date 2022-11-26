@@ -21,7 +21,7 @@ public class Main {
         int jogadorVencedor;
 
         //validador de jogadores vs cartas no baralho
-        boolean jogoSegue  = false;
+        boolean jogoSegue;
 
         //Frase de start do game
         System.out.println("---=== BLIND DEALER TEXAS HOLD'EM ===---");
@@ -47,6 +47,16 @@ public class Main {
         Baralho.imprimeCartaJogadoresRestantes(cartasJogadores,jogadoresRestantes);
         System.out.println();
         System.out.println("eaí, quem ganhou?");
+        if(Rodadas.checkJogadores(Rodadas.getJogadoresQueApostaram())==1){
+            for(int i =0; i<jogadoresRestantes.length;i++){
+                if(jogadoresRestantes[i].equals("bet")){
+                    System.out.println("é, todos desistiram e o jogador "+(i+1)+" recebeu R$ "+soma);
+                    System.exit(0);
+                }
+
+            }
+
+        }
         jogadorVencedor = sc.nextInt();
         System.out.println("-------------------");
         System.out.println("O jogador "+jogadorVencedor+ " recebeu: R$ "+ soma+" na rodada!");
